@@ -1,0 +1,106 @@
+%
+% Here are the definitions
+% of mathematical macros.
+%
+%
+
+% DEFINITIONS
+\NewDocumentCommand{\defined}{}{\mathrel{:=}}
+\NewDocumentCommand{\otherwise}{}{\text{otherwise}}
+
+% BOOLEANS
+\NewDocumentCommand{\Bool}{}{\mathbb{B}}
+\NewDocumentCommand{\ind}{ m }{\mathbf{1}_{#1}}
+
+% INTEGERS
+\NewDocumentCommand{\divides}{}{\mathrel{|}}
+
+% FUNCTIONS
+\NewDocumentCommand{\support}{m}{\operatorname{support}(#1)}
+
+% MSO, FO, LOGIC
+\NewDocumentCommand{\MSO}{}{\mathsf{MSO}}
+\NewDocumentCommand{\FO}{}{\mathsf{FO}}
+
+% NUMBERS
+\def\Nat{\mathbb{N}}
+\def\Rel{\mathbb{Z}}
+\def\Rat{\mathbb{Q}}
+\def\Reals{\mathbb{R}}
+\def\Cpx{\mathbb{C}}
+
+% SETS
+\NewDocumentCommand{\set}{ m }{\{ {#1} \}}
+\NewDocumentCommand{\setof}{ m O{\mid} m }{\{ {#1} #2 {#3} \}}
+\NewDocumentCommand{\seqof}{ m m }{\left({#1}\right)_{#2}}
+\NewDocumentCommand{\cardinal}{ m }{\mathop{\#}\left[#1\right]}
+
+% PERMUTATIONS
+\NewDocumentCommand{\perm}{}{\sigma}
+\NewDocumentCommand{\Perms}{ m }{\mathsf{Permutations}(#1)}
+
+% AUTOMATA
+\NewDocumentCommand{\words}{ O{\Sigma} }{{#1}^\star}
+\NewDocumentCommand{\mono}{O{M}}{#1}
+\NewDocumentCommand{\mappend}{O{M}}{\mathbin{\cdot_{#1}}}
+\NewDocumentCommand{\mconcat}{O{M}}{\mathop{\pi_{#1}}}
+
+% WORDS
+\undef\Alph
+\NewDocumentCommand{\Alph}{O{\Sigma}}{#1}
+\NewDocumentCommand{\AGlue}{O{P}}{\mathcal{#1}}
+\NewDocumentCommand{\wleq}{O{\leq}}{%
+    #1^\star%
+}
+\NewDocumentCommand{\gwleq}{O{\leq} O{\AGlue}}{%
+    #1_{#2}^\star%
+}
+\NewDocumentCommand{\size}{ O{} m}{ \left| #2 \right|_{#1}}
+
+% POLYREGULAR
+\NewDocumentCommand{\Npoly}{ O{} }{\Nat\mathsf{P}_{#1}}
+\NewDocumentCommand{\Zpoly}{ O{} }{\Rel\mathsf{P}_{#1}}
+
+\NewDocumentCommand{\Nsf}{ O{} }{\Nat\mathsf{SF}_{#1}}
+\NewDocumentCommand{\Zsf}{ O{} }{\Rel\mathsf{SF}_{#1}}
+
+% FACTORISATION FORESTS
+\NewDocumentCommand{\Forests}{ O{} m }{\mathcal{F}_{#1}(#2)}
+\NewDocumentCommand{\forestBinaryProduct}{}{\mathrel{\binaryForestProductSymbol}}
+\NewDocumentCommand{\forestIdemProduct}{}{\mathop{\wordForestProductSymbol}}
+\NewDocumentCommand{\forestLeaf}{ m }{\underline{#1}}
+\NewDocumentCommand{\forestSem}{ m }{ \llbracket #1 \rrbracket }
+\NewDocumentCommand{\forestFlatten}{ }{ \operatorname{flatten}}
+\NewDocumentCommand{\forestLeq}{ }{\preceq}
+
+\def\withForests{%
+    \def\fep{\forestIdemProduct}%
+    \def\fbp{\forestBinaryProduct}%
+    \def\flea{\forestLeaf}%
+    \def\fsem{\forestSem}%
+    \def\fflat{\forestFlatten}%
+}
+
+% FOREST PATTERN
+\NewDocumentCommand{\tuplePattern}{ O{F} m }{\operatorname{pat}_{#1}(#2)}
+\NewDocumentCommand{\Patterns}{ O{} m }{\mathsf{Pat}_{#1}(#2)}
+\NewDocumentCommand{\patternBinaryProduct}{}{\mathrel{\binaryForestProductSymbol}}
+\NewDocumentCommand{\patternIdemProduct}{ m m }{\mathop{\wordForestProductSymbol}\left(#1 \mid #2\right)}
+\NewDocumentCommand{\patternLeaf}{ m }{\underline{#1}}
+\NewDocumentCommand{\patternSem}{ m }{ \llbracket #1 \rrbracket }
+
+\def\withPatterns{%
+    \let\pep\patternIdemProduct%
+    \let\pbp\patternBinaryProduct%
+    \let\plea\patternLeaf%
+    \let\psem\patternSem%
+    \let\pderiv\patternDeriv%
+}
+
+% LINEAR COMBINATIONS
+\NewDocumentCommand{\Span}{ O{\Rel} m }{\mathsf{Lin}_{#1}\left(#2\right)}
+\NewDocumentCommand{\LinPatterns}{ O{} m }{\mathsf{LinPat}_{#1}(#2)}
+
+% LINEAR COMBINATION OF FORESTS PATTERNS
+\NewDocumentCommand{\patternDeriv}{ m }{\mathop{\partial}#1}
+\NewDocumentCommand{\patternCount}{ m }{\mathop{\#}\left[#1\right]}

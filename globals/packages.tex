@@ -1,0 +1,68 @@
+%% PACKAGES %%
+
+% Macro making packages
+\usepackage{xparse}
+\usepackage{xpatch}
+\usepackage{tokcycle}
+
+% Standalone compilation
+\usepackage[obeyclassoptions,mode=tex]{standalone}
+
+% Math typesetting 
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{thmtools}
+\usepackage{upgreek}
+\usepackage{amssymb}
+\usepackage{stmaryrd}
+
+% References and knowledge management
+\usepackage{hyperref}
+\usepackage[capitalise,noabbrev,nameinlink]{cleveref}
+\usepackage[electronic,hyperref,xcolor,cleveref]{knowledge}
+\knowledgeconfigure{notion}
+
+% BIBTEX / BIBLATEX
+\usepackage[
+	%style=numeric-comp,
+    %citestyle=authortitle-icomp,
+	citestyle=numeric-comp,
+	%bibstyle=authoryear,
+	bibstyle=numeric,
+	%sorting=none,
+    sorting=nyt,
+	%sortcites=true,
+	%autocite=footnote,
+    maxnames=99,
+    %backend=biber, % Compile the bibliography with biber
+    backend=bibtex,
+    %refsegment=chapter, % split references ?
+	hyperref=true,
+	backref=true,
+	citecounter=true,
+	pagetracker=true,
+	citetracker=true,
+	ibidtracker=context,
+	autopunct=true,
+	autocite=plain,
+    doi=true,
+]{biblatex}
+
+% Table typesetting
+\usepackage{booktabs}
+\usepackage{varwidth}
+
+% Proofs typesetting
+\usepackage{bussproofs}
+
+% Drawing
+\usepackage{tikz}
+\usetikzlibrary{backgrounds}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{positioning}
+\usetikzlibrary{automata}
+\usetikzlibrary{tikzmark}
+\usetikzlibrary{patterns}
+\usetikzlibrary{arrows}
+\usepackage{tikz-cd}
+\tikzset{every state/.style={minimum size=1pt}}

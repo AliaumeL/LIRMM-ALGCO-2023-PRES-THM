@@ -1,0 +1,68 @@
+% knowledge management
+\knowledgestyle{intro notion}{color={A5}, emphasize}
+\knowledgestyle{notion}{color={A4}}
+\knowledgeconfigure{anchor point color={A2},
+                    anchor point shape=corner}
+\knowledgestyle{intro unknown}{color={D3}, emphasize}
+\knowledgestyle{intro unknown cont}{color={C3}, emphasize}
+\knowledgestyle{kl unknown}{color={D2}}
+\knowledgestyle{kl unknown cont}{color={C2}}
+
+\hypersetup{
+    colorlinks=true,
+    anchorcolor=A2,
+    citecolor=A4,
+    linkcolor=A4,
+    urlcolor=A3,
+    filecolor=A3,
+    runcolor=D2,
+    menucolor=D2,
+}
+
+\NewDocumentCommand{\klscope}{ o m }{
+    \withkl{\kl[#1]}{#2}
+}
+
+% Common theorem styles
+\theoremstyle{plain}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+
+% Upgreek letters
+\makeatletter
+\newcommand\mathgr[1]{\tokcycle
+  {\addcytoks{##1}}
+  {\processtoks{##1}}
+  {\ifcsname up\expandafter\@gobble\string##1\endcsname
+   \addcytoks[1]{\csname up\expandafter\@gobble\string##1\endcsname}%
+    \else\addcytoks{##1}\fi}
+  {\addcytoks{##1}}{#1}%
+  \expandafter\mathrm\expandafter{\the\cytoks}%
+}
+\makeatother
+
+% Comment on a definition/text
+\NewDocumentCommand{\comment}{m}{%
+    \footnote{#1}%
+}
+
+% Citation configuration
+\AtEveryBibitem{
+    % Removes issn, isbn, and
+    % unwanted items from the bibliography
+	\clearfield{issn}
+	\clearfield{isbn}
+	\clearfield{archivePrefix}
+	\clearfield{arxivId}
+	\clearfield{pmid}
+	\clearfield{eprint}
+}
+
+% Cite a knowledge
+\NewDocumentCommand{\citek}{ o m }{
+    \IfNoValueTF{#1}{
+        \cite{m}
+    }{
+        \cite[{\kl(#1)[#2]}]{#1}
+    }
+}

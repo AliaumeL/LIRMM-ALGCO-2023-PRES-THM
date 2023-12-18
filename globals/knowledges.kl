@@ -1,0 +1,115 @@
+%% KNOWLEDGE FILE %%
+
+% usual functions
+
+\knowledge{notion}
+ | positive@function
+
+\knowledge{notion}
+ | finite support
+
+\knowledge{notion}
+ | support@function
+
+% wqo
+\knowledge{notion}
+ | downwards closed
+\knowledge{notion}
+ | upwards closed
+\knowledge{notion}
+ | well-quasi-ordering
+ | wqo
+
+% LINEAR ALGEBRA
+
+\knowledge{notion}
+ | linear map
+\knowledge{notion}
+ | bilinear map
+\knowledge{notion}
+ | multi-linear map
+
+
+\knowledge{notion}
+ | product ordering
+\knowledge{notion}
+ | subword ordering
+ | Himgan subword embedding
+\knowledge{notion}
+ | well-quasi-ordered
+ | well-quasi-order
+
+% polyregular functions
+
+\knowledge{notion}
+ | polyregular functions
+\knowledge{notion}
+ | $\Nat $-polyregular functions
+ | $\Nat $-polyregular function
+ | $\Nat $-polyregular
+\knowledge{notion}
+ | $\Rel $-polyregular function
+ | $\Rel $-polyregular functions
+ | $\Rel $-polyregular
+
+
+% patterns and their embeddings
+
+\knowledge{notion}
+ | forest patterns of depth $d$ in $M$
+\knowledge{notion}
+ | embeddings between patterns
+ | pattern to pattern embedding
+ | embedding@pattern
+ | embeddings@pattern
+ | pattern embedding
+ | embedding@p-to-p
+ | embeds@pattern
+ | embed@pattern
+ | embed@p-to-p
+ | divisible@pattern
+ | divisibility@pattern
+
+\knowledge{notion}
+ | embedding of $q$ in $F$
+ | pattern to forest embedding
+ | embedding@p-to-f
+\knowledge{notion}
+ | embedding of $F_1$ in $F_2$
+ | forest to forest embedding
+
+\knowledge{notion}
+ | pattern of $\vec {x}$ in $F$
+
+\knowledge{notion}
+ | good support
+ | good supports
+ | good support for $q$
+
+\knowledge{notion}
+ | positive maximal coefficients
+
+\knowledge{notion}
+ | eigenvalues
+\knowledge{notion}
+ | pumpable
+\knowledge{notion}
+ | weighted automata
+\knowledge{notion}
+ | polynomial ambiguity
+\knowledge{notion}
+ | commutative@function
+\knowledge{notion}
+ | monoid
+\knowledge{notion}
+ | factorisations forests of depth $d$ for $M$
+\knowledge{notion}
+ | forest semantic
+\knowledge{notion}
+ | idempotent
+\knowledge{notion}
+ | factorisation forests for $M$
+\knowledge{notion}
+ | factorises
+\knowledge{notion}
+ | quantifier free types

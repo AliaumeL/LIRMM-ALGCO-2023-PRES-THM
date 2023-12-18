@@ -1,0 +1,43 @@
+%! TeX program = xelatex
+\documentclass{beamer}
+
+\input{globals/packages}
+\input{globals/colorscheme}
+\input{globals/theme}
+
+\input{globals/macros}
+\input{globals/mathdefs}
+\input{globals/knowledges.kl}
+
+\input{globals/metadata}
+
+\begin{document}
+
+\begin{frame}
+    \maketitle
+\end{frame}
+
+
+\input{slides.tex}
+
+\begin{frame}{Normal Frame}
+    \begin{block}{test}
+        content
+    \end{block}
+\end{frame}
+
+\begin{frame}[standout]
+    Standout Frame
+\end{frame}
+
+
+\begin{frame}[allowframebreaks]{Bibliography}
+    \printbibliography[heading=none]
+\end{frame}
+
+\appendix
+
+\begin{frame}{Backup Frame}
+\end{frame}
+
+\end{document}
