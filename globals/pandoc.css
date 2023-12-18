@@ -302,3 +302,17 @@ h6 {
   border-radius: 0.2em;
   background-color: #859900;
 }
+
+
+.abstract {
+    max-width: 90%;
+    margin: auto;
+    border-radius: 1em;
+    border: 1px solid black;
+    padding: 1em;
+}
+
+.abstract-title {
+    font-weight: bold;
+}
+
