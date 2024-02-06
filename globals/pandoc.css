@@ -1,6 +1,8 @@
 @import url(http://fonts.googleapis.com/css?family=Inconsolata);
 @import url(http://fonts.googleapis.com/css?family=PT+Sans);
 @import url(http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700);
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,700);
+@import url(http://fonts.googleapis.com/css?family=Dosis:400,700);
 article,
 aside,
 details,
@@ -316,3 +318,8 @@ h6 {
     font-weight: bold;
 }
 
+
+
+img {
+    max-width: 100%;
+}

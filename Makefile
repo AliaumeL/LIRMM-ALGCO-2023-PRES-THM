@@ -1,10 +1,10 @@
 .PHONY: interactive 
 
-%.pdf: %.tex slides.md
+%.pdf: %.tex slides.tex
 	latexmk -pdf -xelatex -f $^
 
 %.tex: %.md
-	pandoc --citeproc --bibliography globals/papers.bib --biblatex -o $@ -t beamer $^
+	pandoc --citeproc --slide-level=3 --bibliography globals/papers.bib --biblatex -o $@ -t beamer $^
 
 %.html: %.md
 	pandoc -o $@ -s --mathjax --citeproc --bibliography globals/papers.bib --css globals/pandoc.css $^
