@@ -21,10 +21,10 @@
 
 \begin{frame}{Guessing Game}
     \begin{center}
-        \foreach[count=\xi] \i in {1,...,5} {
-            \only<\xi>{
-                \includegraphics[width=15cm]{figures/quizz_Page \i.png}
-            }
+        \foreach[count=\xi] \i in {1,...,5} {%
+            \only<\xi>{%
+                \includegraphics[width=15cm]{figures/quizz_Page \i.png}%
+            }%
         }
     \end{center}
 \end{frame}
@@ -62,10 +62,10 @@
         \end{equation*}
     \end{definition}
     \begin{center}
-        \foreach[count=\xi] \i in {6,7,8} {
-            \only<\xi>{
-                \includegraphics[width=11cm]{figures/quizz_Page \i.png}
-            }
+        \foreach[count=\xi] \i in {6,7,8} {%
+            \only<\xi>{%
+                \includegraphics[width=11cm]{figures/quizz_Page \i.png}%
+            }%
         }
     \end{center}
 \end{frame}
@@ -106,10 +106,10 @@
 
 \begin{frame}{Drawing conventions}
     \begin{center}
-        \foreach[count=\xi] \i \in {9,10,11} {
-            \only<\xi>{
-                \includegraphics[width=15cm]{figures/quizz_Page \i.png}
-            }
+        \foreach[count=\xi] \i in {9,10,11} {%
+            \only<\xi>{%
+                \includegraphics[width=9cm]{figures/quizz_Page \i.png}%
+            }%
         }
     \end{center}
 \end{frame}
@@ -143,23 +143,6 @@
     \end{alertblock}
 \end{frame}
 
-\subsection{Theoretical implications?}\label{theoretical-implications}
-
-\begin{frame}{Theoretical implications?}
-
-    Using the \textbf{Homomorphism Preservation Theorem}
-    (variation of the Łoś--Tarski Theorem).
-
-    \textbf{\autocite[Proposition 1]{LIBK11}.} Naïve evaluation of a query
-    \(q\) computes its \emph{certain answers} if and only if \(q\) is a
-    union of conjunctive query.
-
-    \textbf{\autocite[Theorem 17]{DENJ08}.} The \emph{core chase} terminates
-    on an initial database \(I\) and constraints \(\Sigma\) if and only if
-    \(\mathop{\uparrow}(\Sigma \cap I)\) is first-order definable.
-
-\end{frame}
-
 \subsection{In the finite?}\label{in-the-finite}
 
 \begin{frame}{Łoś-Tarski in the finite?}
@@ -178,9 +161,9 @@ Relativisation
 All finite structures & NO \autocite{TAIT59} \\
 \(\emptyset\) & YES \\
 Bounded tree-depth & YES \autocite{wqo:DING92} \\
-Cycles & NO \\
 Paths & YES \\
 Cliques & YES \\
+Cycles and Paths & NO \\
 Bounded degree, hereditary, and closed under disjoint unions & YES
 \autocite{ADG08} \\
 Planar Graphs & NO \autocite{ADG08} \\
@@ -188,40 +171,55 @@ Planar Graphs & NO \autocite{ADG08} \\
 \end{longtable}
 \end{frame}
 
-\subsubsection{What are the tools?}\label{what-are-the-tools}
+\subsection{Theoretical implications?}\label{theoretical-implications}
 
-\begin{frame}{The proof scheme.}
-\protect\hypertarget{the-proof-scheme.}{}
-Given a sentence \(\varphi\) preserved under extensions over a class
-\(\mathcal{C}\), do the following:
+\begin{frame}{Theoretical implications?}
 
-\begin{enumerate}
-\tightlist
-\item
-  Rewrite \(\varphi\) as a Boolean combination of ``basic local
-  sentences'' \autocite{GAIF82}
-\item
-  Assume by contradiction that \(\varphi\) has arbitrarily large
-  \(\subseteq_i\)-minimal models
-\item
-  In large enough minimal models, neighbourhoods ``repeat'' a lot, and
-  can be ``contracted''
-\item
-  Obtain a contradiction because \(\varphi\) cannot observe the
-  contraction
-\end{enumerate}
+    Using the \textbf{Homomorphism Preservation Theorem}
+    (variation of the Łoś--Tarski Theorem).
+
+    \textbf{\autocite[Proposition 1]{LIBK11}.} Naïve evaluation of a query
+    \(q\) computes its \emph{certain answers} if and only if \(q\) is a
+    union of conjunctive query.
+
+    \textbf{\autocite[Theorem 17]{DENJ08}.} The \emph{core chase} terminates
+    on an initial database \(I\) and constraints \(\Sigma\) if and only if
+    \(\mathop{\uparrow}(\Sigma \cap I)\) is first-order definable.
+
 \end{frame}
 
-\subsection{The best ``generic'' result prior to this work}
+\subsubsection{What are the tools?}
+
+\begin{frame}{The usual proof scheme \hfill (in hereditary classes)}
+    Given a sentence $\varphi \in \FO$ that is preserved under $\isubleq$ (over a class of interest).
+    \begin{center}
+        \includegraphics[width=8cm]{figures/quizz_Page 12.png}
+    \end{center}
+    \pause
+    \begin{itemize}
+        \item List minimal models of $\varphi$
+        \item Assume that $\model{A} \models \varphi$ is extremely large
+        \item Construct $\model{B} \isubleq \model{A}$ that continues
+            to satisfy $\varphi$, but is smaller.
+        \item Conclude.
+    \end{itemize}
+\end{frame}
+
 
 \begin{frame}{The best ``generic'' result prior to this work}
-\textbf{Theorem \autocite{ADG08}.} Let \(\mathcal{C}\) be a hereditary
-class of finite structures closed under disjoint unions. If
-\(\mathcal{C}\) has \emph{bounded degree}, then the Łoś--Tarski Theorem
-relativises to \(\mathcal{C}\).
-
-\textbf{Remark.} Hereditary means that existential sentences are
-precisely those with finitely many minimal models.
+    \begin{theorem}[\cite{ADG08}]
+        \vspace{0.1em}
+        Let $\mathcal{C}$ be a \textbf{hereditary} class of finite structures
+        closed under \textbf{disjoint unions}.
+        Then, item $1$ implies item $2$:
+        \begin{enumerate}
+            \item $\mathcal{C}$ has \emph{bounded degree},
+            \item The Łoś-Tarski theorem relativises to $\mathcal{C}$.
+        \end{enumerate}
+    \end{theorem}
+    \pause
+    \begin{block}{Works for infinitely many classes}
+    \end{block}
 \end{frame}
 
 \section{The results}\label{the-results}
@@ -229,341 +227,337 @@ precisely those with finitely many minimal models.
 \subsection{Localisations}\label{localisations}
 
 \begin{frame}{Main theorem}
-\textbf{Theorem.} For every \emph{hereditary} class \(\mathcal{C}\) of
-finite structures that is closed under disjoint unions, the following
-are equivalent
 
-\begin{enumerate}
-\tightlist
-\item
-  The Łoś--Tarski Theorem relativises to \(\mathcal{C}\).
-\item
-  The Łoś--Tarski Theorem relativises to all \textbf{localisations} of
-  \(\mathcal{C}\).
-\end{enumerate}
+    \begin{theorem}[The localisation theorem]
+        \vspace{0.1em}
+        Let $\mathcal{C}$ be a \textbf{hereditary} class of finite structures
+        closed under \textbf{disjoint unions}.
+        Then, the following are equivalent:
+        \begin{enumerate}
+            \item The Łoś-Tarski theorem relativises to $\mathcal{C}$,
+            \item The Łoś-Tarski theorem \textbf{locally} relativises to $\mathcal{C}$.
+        \end{enumerate}
+    \end{theorem}
 
-\textbf{Remarks.}
+    \pause
 
-\begin{itemize}
-\tightlist
-\item
-  Strictly generalises \autocite{ADG08}
-\item
-  Is now an equivalence
-\item
-  Yields new classes of structures
-\end{itemize}
+    \begin{block}{Remarks}
+        \begin{itemize}
+            \item Is now an equivalence.
+            \item Strictly generalises \cite{ADG08}.
+        \end{itemize}
+    \end{block}
 \end{frame}
+
+\subsection{Locality???}
 
 \begin{frame}{What is a neighbourhood?}
-\(\mathcal{N}_{A}(\vec{a}, r)\)
+    \begin{center}
+        \centering
+        \foreach[count=\xi] \i in {13,14,15} {%
+            \only<\xi>{%
+                \includegraphics[width=12cm]{figures/quizz_Page \i.png}%
+            }%
+        }
+    \end{center}
 \end{frame}
-
-\subsubsection{Example of
-neighbourhoods}\label{example-of-neighbourhoods}
-
-\subsubsection{What is a localisation?}\label{what-is-a-localisation}
 
 \begin{frame}{What is a localisation?}
-\(\mathsf{Loc}(\mathcal{C},k, r) := \{ \mathcal{N}_{A}(\vec{a}, r) \mid  \vec{a} \in A^k \}\)
-
-\textbf{Remark.}
-\(\mathcal{C} = \bigcup_{k,r} \mathsf{Loc}(\mathcal{C},k, r)\)
+    \begin{equation*}
+        \Loc{\mathcal{C}}{k}{r} \defined
+        \setof{
+            \Neighb{\model{A}}{\vec{a}}{r}
+        }{
+            \vec{a} \in \model{A}^k
+        }
+        \quad .
+    \end{equation*}
+    \pause
+    \begin{alertblock}{Remark for finite classes}
+        \begin{equation*}
+            \mathcal{C} = \bigcup_{k,r} \Loc{\mathcal{C}}{k}{r} \quad .
+        \end{equation*}
+    \end{alertblock}
 \end{frame}
-
-\subsubsection{Example of localisations}\label{example-of-localisations}
 
 \begin{frame}{Example of localisations}
-\begin{itemize}
-\tightlist
-\item
-  Bounded degree iff localisations are finite
-\item
-  Cycles -\textgreater{} localisation contains finitely many cycles!
-\item
-  Cliques -\textgreater{} localitasions are the whole class at every
-  step
-\end{itemize}
+    \begin{equation*}
+        \Loc{\Cycles}{1}{3} = ? 
+    \end{equation*}
+    \pause
+    \begin{center}
+        \includegraphics[width=8cm]{figures/quizz_Page 16.png}
+    \end{center}
 \end{frame}
 
-\subsubsection{How do we use such a
-theorem?}\label{how-do-we-use-such-a-theorem}
+\begin{frame}{Example of localisations}
+    \begin{alertblock}{Locally finite?}
+        \centering
+        $\mathcal{C}$ has bounded degree
+        $\iff$
+        $\Loc{\mathcal{C}}{k}{r}$ is finite for all $r,k \geq 0$.
+    \end{alertblock}
+\end{frame}
 
 \begin{frame}{How do we use such a theorem?}
-COPY FIGURE ABOUT NEW CLASSES
+    \begin{center}
+        \includegraphics[width=15cm]{figures/quizz_Page 17.png}
+    \end{center}
 \end{frame}
 
 \section{The proofs}\label{the-proofs}
 
-\subsection{Positive Locality and
-Neighbourhroods}\label{positive-locality-and-neighbourhroods}
+\subsection{Positive Locality and Neighbourhroods}
+
+\begin{frame}[standout]
+    Until now, we never really used $\FO$!
+\end{frame}
 
 \subsubsection{Local formulas}\label{local-formulas}
 
 \begin{frame}{Local formulas}
-A formula is local if its truth value only depends on the local
-neighbourhood of the free variables.
+    \begin{block}{$r$-local formulas $\varphi(x)$}
+        \begin{equation*}
+            \model{A} \models \varphi(a)
+            \iff
+            \Neighb{\model{A}}{a}{r} \models \varphi(a)
+            \quad
+        \end{equation*}
+    \end{block}
+    \pause
+    \begin{alertblock}{What about sentences?}
+        \vspace{0.1em}
+        \begin{itemize}
+            \item \textbf{Basic local sentences} \cite{GAIF82}
+                ($\varphi(x)$ is $r$-local)
+        \begin{equation*}
+            \exists^{\geq n}_{r} x. \varphi(x) \quad .
+        \end{equation*}
+    \item \textbf{Existential-local sentences} ($\varphi(\vec{x})$ is $r$-local)
+        \begin{equation*}
+            \exists \vec{x}. \varphi(\vec{x}) \quad .
+        \end{equation*}
+        \end{itemize}
+    \end{alertblock}
 \end{frame}
 
-\subsubsection{Local sentences?}\label{local-sentences}
-
-\begin{frame}{Local sentences?}
-Does not make sense to consider local sentences (either true or false)
+\begin{frame}{Evaluating a basic local sentence}
+    \begin{equation*}
+            \exists^{\geq n}_{r} x. \varphi(x) \quad .
+    \end{equation*}
+    \begin{enumerate}
+        \item For each node $a \in \model{A}$, decide whether
+            $\Neighb{\model{A}}{a}{r} \models \varphi(a)$.
+        \item Decide if there exists a set of at least $n$ points
+            with non-intersecting $r$ neighbourhoods that 
+            locally satisfy $\varphi$
+            ($r$-independent set).
+    \end{enumerate}
 \end{frame}
-
-\subsubsection{Basic local sentences}\label{basic-local-sentences}
-
-\begin{frame}{Basic local sentences}
-Gaifman defined basic local sentences as follows:
-\end{frame}
-
-\subsubsection{Existential local
-sentences}\label{existential-local-sentences}
-
-\begin{frame}{Existential local sentences}
-Another way to define local sentences is to consider existential
-quantification of local formulas.
-
-\textbf{Remark.} \(0\)-local is existential, \(\infty\)-local is
-arbitrary formulas.
-\end{frame}
-
-\subsubsection{Positive Locality}\label{positive-locality}
 
 \begin{frame}{Positive Locality}
-\textbf{Theorem \autocite{GAIF82}.} Every sentence \(\varphi\) is
-equivalent to a Boolean combination of basic local sentences.
+    \begin{theorem}[\cite{GAIF82}]
+        \vspace{0.1em}
+        Every sentence \(\varphi\) is
+        equivalent to a Boolean combination of basic local sentences.
+    \end{theorem}
 
-\textbf{Theorem.} For every sentence \(\varphi\), the following are
-equivalent:
+    \pause
+    \vspace{1em}
+    \hrule
+    \vspace{0.8em}
 
-\begin{enumerate}
-\tightlist
-\item
-  \(\varphi\) is equivalent to a \textbf{positive} Boolean combination
-  of basic local sentences.
-\item
-  \(\varphi\) is equivalent to an existential local sentence.
-\end{enumerate}
+    \begin{theorem}[Positive Locality]
+        \vspace{0.1em}
+        For every sentence \(\varphi\), the following are
+        equivalent:
+
+        \begin{enumerate}
+        \tightlist
+        \item
+          \(\varphi\) is equivalent to a \textbf{positive} Boolean combination
+          of basic local sentences.
+        \item
+          \(\varphi\) is equivalent to an existential local sentence.
+        \end{enumerate}
+    \end{theorem}
 \end{frame}
 
 \subsection{Combinatorics of
 Neighbourhroods}\label{combinatorics-of-neighbourhroods}
 
-\subsubsection{Easier Theorem}\label{easier-theorem}
-
-\begin{frame}{Easier Theorem}
-\textbf{Theorem.} Let \(\mathcal{C}\) be a hereditary class of finite
-structures, the following properties are equivalent:
-
-\begin{enumerate}
-\tightlist
-\item
-  \(\mathsf{Loc}(\mathcal{C},k, r)\) satisfies preservation under
-  extensions for all \(r,k \geq 0\).
-\item
-  Existential local sentences \(\varphi\) that are preserved under
-  extensions over \(\mathcal{C}\) are equivalent to existential
-  sentences.
-\end{enumerate}
-
-\textbf{Idea for \((1) \implies (2)\).} Let
-\(\varphi := \exists x_1, \dots x_k. \psi(\vec{x})\) where \(\psi\) is
-\(r\)-local. Apply preservation under extensions over
-\(\mathsf{Loc}(\mathcal{C},k, r)\), and obtain a bound on the size of
-the minimal models of \(\varphi\).
-
-\textbf{Idea for \((2) \implies (1)\).} Transform \(\varphi\) into
-\(\psi := \exists x_1, \dots, x_k. \varphi_{| \mathcal{N}_{}(\vec{x}, r)}\)
-which is existential local, and preserved under extensions.
+\begin{frame}{Existential Local Łoś-Tarski}
+    \begin{theorem}
+        \vspace{0.1em}
+        Let $\mathcal{C}$ be a \textbf{hereditary} class of finite structures
+        closed under \textbf{disjoint unions}.
+        Then, the following are equivalent:
+        \begin{enumerate}
+            \item 
+                Łoś-Tarski \textbf{locally} relativises to
+                $\mathcal{C}$,
+            \item 
+                Existential local sentences that are
+                preserved under extensions over $\mathcal{C}$
+                are equivalent to existential sentences.
+        \end{enumerate}
+    \end{theorem}
+    \pause
+    \begin{equation*}
+        (k,r)-\text{Existential local over } \mathcal{C}
+        \leftrightarrow
+        \text{ Sentence over } \Loc{\mathcal{C}}{k}{r}
+        \quad .
+    \end{equation*}
 \end{frame}
 
-\subsection{The core combinatorial
-argument}\label{the-core-combinatorial-argument}
-
-\subsubsection{Bounding models}\label{bounding-models}
-
-\begin{frame}{Bounding models}
-\textbf{Theorem.} Let \(\mathcal{C}\) be a hereditary class of finite
-structures closed under disjoint unions, and \(\varphi\) be a sentence
-preserved under \(\subseteq_i\) over \(\mathcal{C}\). There exists
-\(K,R\) such that minimal models of \(\varphi\) belongs to
-\(\mathsf{Loc}(\mathcal{C},K, R)\).
-
-\textbf{Corollary.} Sentences preserved under extensions are
-\emph{existential local} without loss of generality.
-
-\textbf{Proof Scheme.} Transform a Gaifman normal form into a
-\textbf{positive} Gaifman normal form\ldots{} with \(\mathsf{MSO}\)
-formulas.
+\begin{frame}{The main idea}
+    \begin{alertblock}{To conclude it suffices to prove that ...}
+        \vspace{0.1em}
+        Sentences preserved under extensions
+        are equivalent to existential local sentences.
+    \end{alertblock}
+    \pause
+    \begin{block}{Replacing ``finite size" with ``bounded radius"}
+        \vspace{0.1em}
+        \begin{itemize}
+            \item Consider a minimal model $\model{A}$ of a sentence $\varphi$
+                and assume that it is very \emph{sparse}
+            \item Extract a substructure $\model{B} \isubleq \model{A}$
+                that satisfies $\varphi$.
+            \item Conclude.
+        \end{itemize}
+    \end{block}
 \end{frame}
 
-\subsubsection{From Gaifman to positive
-Gaifman}\label{from-gaifman-to-positive-gaifman}
+\subsection{The core combinatorial argument}
+
 
 \begin{frame}{First attempt}
-\protect\hypertarget{first-attempt}{}
-Let
-\(\varphi := \bigvee_i \bigwedge_k \theta_{i,k}^+ \wedge \bigwedge_k \neg \theta_{i,k}^-\)
-be preserved under extensions. Take only the positive part of the
-Gaifman normal form, i.e.,
-\(\psi := \bigvee_i \bigwedge_k \theta_{i,k}^+\).
+    \begin{enumerate}
+        \item 
+            Consider a first order sentence \(\varphi := \bigvee_i \bigwedge_k
+            \theta_{i,k}^+ \wedge \bigwedge_k \neg \theta_{i,k}^-\) preserved
+            under extensions in Gaifman normal form, with locality radius $r$.
 
-\textbf{Hope.} If \(A \models \varphi\) is a minimal model of
-\(\varphi\), then the restriction of \(A\) to the local neighbourhood
-around \emph{positive} witnesses satisfies \(\varphi\), hence
-\(A \in \mathsf{Loc}(\mathcal{C},K, R)\).
+        \item
+            Take $\model{A}$ a minimal model of $\varphi$.
+
+        \item 
+            Consider the \emph{positive} witnesses $\vec{a}$ of $\model{A}$.
+
+        \item 
+            Construct $\model{B} \defined \Neighb{\model{A}}{\vec{a}}{r}$.
+
+        \item \textbf{Hope:} $\model{B} \models \varphi$.
+    \end{enumerate}
 \end{frame}
 
 \begin{frame}{Problem}
-\protect\hypertarget{problem}{}
-The neighbourhoods in \(\mathcal{N}_{A}(\vec{a}, R)\) are obtained as
-\emph{intersections} of neighbourhoods in \(A\)!
+    \begin{center}
+        The neighbourhoods in 
+        $\Neighb{\model{A}}{\vec{a}}{r}$
+        are obtained as \emph{intersections}
+        of neighbourhoods of $\model{A}$.
+    \end{center}
+
+    \begin{center}
+        \includegraphics[width=10cm]{figures/quizz_Page 18.png}
+    \end{center}
 \end{frame}
 
 \begin{frame}{Solution}
-\protect\hypertarget{solution}{}
-Encode the intersections using monadic second order formulas:
-\(\exists X. \psi_{|X}\).
+    \begin{alertblock}{Use monadic second order logic}
+        \vspace{0.1em}
+        Encode the intersections using monadic second order formulas:
+        \(\exists X. \psi_{|X}\).
+    \end{alertblock}
+
+    \begin{alertblock}{Cluster the witnesses in one large neighbourhood}
+    \end{alertblock}
 \end{frame}
 
-\subsubsection{From Gaifman to positive
-Gaifman}\label{from-gaifman-to-positive-gaifman-1}
-
-\begin{frame}{Spatial Repartition of Neighbourhrood Types}
-\protect\hypertarget{spatial-repartition-of-neighbourhrood-types}{}
-Let \(r,q,k \geq 0\). There exist bounds \(K_m \geq k\) and
-\(R_m \geq r\), such that for all \(A\), there exists
-\(r \leq R \leq R_m\), subsets \(C_A\) and \(G_A\) of \(A\) such that:
-
-\begin{enumerate}
-\tightlist
-\item
-  Both \(C_A\) and \(G_A\) have size at most \(K_m\),
-\item
-  The sets \(C_A\) and \(G_A\) are not intersecting at radius \(R\),
-  i.e.,
-  \(\mathcal{N}_{A}(C_A, R) \cap \mathcal{N}_{A}(G_A, R) = \emptyset\),
-\item
-  Elements in \(G_A\) are at pairwise distance greater than \(R\),
-\item
-  For every \(a \in A\), one of the following holds
-
-  \begin{enumerate}
-  [a.]
-  \tightlist
-  \item
-    The \(\mathsf{MSO}\) \((q,r)\)-local type of \(a\) is realised by
-    some point \(b\) such that with
-    \(\mathcal{N}_{A}(b, r) \subseteq \mathcal{N}_{A}(C_A, R)\),
-  \item
-    There are at least \(k\) elements \(b \in G_A\) with the same
-    \(\mathsf{MSO}\) \((q,r)\)-local type.
-  \end{enumerate}
-\end{enumerate}
+\begin{frame}{A graph theoretic result}
+    \begin{lemma}[Frequent and rare colours]
+        \vspace{0.1em}
+        Let $N,r,k \in \Nat$. There exists bounds
+        $K_m \geq k$ and $R_m \geq r$
+        such that for all graphs $H$ with $N$ colours,
+        there exist $r \leq R \leq R_m$,
+        $k \leq K \leq K_m$, subsets $C^H$ and $G^H$
+        of $H$ such that the following holds:
+        \begin{enumerate}[<+->]
+            \item Both $C^H$ and $G^H$ have size at most $K_m$;
+            \item The sets $C^H$ and $G^H$ have non-intersecting $R$-neighbourhoods;
+            \item Elements in $C^H$ have non-intersecting $R$-neighbourhoods;
+            \item For every colour $c \in \set{1, \dots, N}$,
+                one of the following holds:
+                \begin{enumerate}
+                    \item All nodes $x \in H$  with colour $c$
+                        satisfy $\Neighb{H}{x}{r} \subseteq \Neighb{H}{C^H}{R}$;
+                    \item There are at least $k$ distinct element in $G^H$
+                        with colour $c$.
+                \end{enumerate}
+        \end{enumerate}
+    \end{lemma}
 \end{frame}
 
-\subsubsection{Proof Scheme}\label{proof-scheme}
-
-\begin{frame}{Proof Scheme}
-\begin{enumerate}
-\tightlist
-\item
-  Enumerate pairs \(C_A\), \(G_A\) with parameters \((2kl, 2r, q+1)\),
-  that guarantee the satisfaction of \(\varphi\) as an existential
-  \(\mathsf{MSO}\) local sentence.
-\item
-  Write the disjunction of these, which remains an existential
-  \(\mathsf{MSO}\) local sentence.
-\end{enumerate}
+\begin{frame}
+    \centering
+    \includegraphics[width=10cm]{figures/quizz_Page 19.png}
 \end{frame}
 
-\begin{frame}{Correctness?}
-\protect\hypertarget{correctness}{}
-If \(A \models \varphi = \bigvee \bigwedge \pm \theta_i\) is
-\(\subseteq_i\)-minimal, \(\theta_i\) has parameters \((k,r,q)\), and
-\(\varphi\) is preserved under extensions.
-
-\begin{enumerate}
-\tightlist
-\item
-  Find \(C_A\), \(G_A\), \(R\), \(K\) by applying our lemma with
-  parameters \((2kl, 2r, q + 1)\).
-\item
-  Prove that \(B := \mathcal{N}_{A}(C_A \cup G_A, R)\) satisfies
-  \(\varphi\).
-\end{enumerate}
+\begin{frame}{Actual Proof \hfill (simplified)}
+    \begin{itemize}[<+->]
+        \item Consider a sentence $\varphi$ in Gaifman normal form,
+            with quantifier rank $q$, of locality radius $r$,
+            and searching for independent sets of size $k$.
+        \item Consider a minimal model $\model{A}$ of $\varphi$.
+        \item Colour the nodes of $\model{A}$ with
+            the collection of all $\MSO(q,k)$
+            formulas satisfied on their $r$-local neighbourhood.
+        \item Apply the combinatorial lemma.
+        \item Extract the ``generic points'' and the ``core'' into a structure $\mathfrak{B}$.
+        \item Conclude.
+    \end{itemize}
 \end{frame}
 
-\subsubsection{Proof Scheme}\label{proof-scheme-1}
-
-\begin{frame}{Proof Scheme}
-\textbf{Idea.}
-
-\begin{itemize}
-\item
-  If \(A \models \theta_i\), there are \(k\) \(r\)-independent witnesses
-  of some \((r,q)\)-local type in \(A\). Either they are all included in
-  \(\mathcal{N}_{A}(C_A, R)\), in which case \(B \models \theta_i\), or
-  at least one \emph{is not included}, hence is frequent, and can be
-  found in \(\mathcal{N}_{A}(G_A, R)\) repeated at least \(k\) times.
-\item
-  Conversely, if \(B \models \theta_i\), either the witnesses are found
-  in \(\mathcal{N}_{A}(C_A, R)\), in which case \(A \models \theta_i\).
-  Otherwise, there is at least one witness with a neighbourhood that is
-  not included, which means that \(\exists X. \psi_{|X}(x)\) is
-  satisfied for this witness, and we find at least \(k\) other witnesses
-  of this type in \(G_A\). This means that an induced substructure of
-  \(B\) satisfies \(\theta_i\).
-\item
-  This can be corrected to show that a suitable induced substructure of
-  \(B\) satisfies the same \(\theta_i\) as \(A\). Hence, an induced
-  substructure of \(B\) satisfies \(\varphi\), hence
-  \(B \models \varphi\).
-\end{itemize}
-\end{frame}
-
-\section{Concluding remarks}\label{concluding-remarks}
-
-\subsection{and future works}\label{and-future-works}
-
-\subsubsection{What was obtained}\label{what-was-obtained}
+\section{Concluding remarks}
+\subsection{And future works}
 
 \begin{frame}{What was obtained}
-\begin{itemize}
-\tightlist
-\item
-  A local-to-global characterisation of preservation under extensions
-\item
-  New classes of finite structures for which the Łoś--Tarski Theorem
-  relativises.
-\item
-  A characterisation of existential local sentences as those enjoying a
-  positive Gaifman normal form.
-\item
-  A technical lemma about the ``spatial'' repartition of local types in
-  a given structure.
-\end{itemize}
+    \begin{alertblock}{Positive results}
+        \begin{itemize}
+        \item
+          A local-to-global characterisation of the relativisation of Łoś-Tarski.
+        \item
+          New classes of finite structures for which the Łoś-Tarski Theorem
+          relativises.
+        \item
+          A characterisation of existential local sentences as those enjoying a
+          positive Gaifman normal form.
+        \item
+          A technical lemma about the ``spatial'' repartition of local types in
+          a given structure.
+        \end{itemize}
+    \end{alertblock}
 \end{frame}
 
-\subsubsection{What's next?}\label{whats-next}
-
 \begin{frame}{What's next?}
-\begin{itemize}
-\tightlist
-\item
-  Understand the Homomorphism Preservation Theorem, replacing \(\uplus\)
-  with \(\oplus_X\)\ldots{}
-\item
-  Locality is limited (Cliques vs Independent sets\ldots), can we use
-  other notions (flipper games?) to understand the behaviour of
-  \(\mathsf{FO}\) on dense classes?
-\item
-  What about effectiveness?
-\item
-  Towards decidability of these properties? (over classes of bounded
-  linear clique width)
-\end{itemize}
+    \begin{exampleblock}{Open problems}
+        \begin{itemize}
+        \item
+          Understand the Homomorphism Preservation Theorem, replacing \(\uplus\)
+          with \(\oplus_X\)\ldots{}
+        \item
+            How can we generalise the theorem to ``dense'' classes?
+        \item
+          What about effectiveness?
+        \item
+          Towards decidability of these properties? (over classes of bounded
+          linear clique width, classes of bounded clique width)
+        \end{itemize}
+    \end{exampleblock}
 \end{frame}
 
 \begin{frame}[allowframebreaks]{Bibliography}

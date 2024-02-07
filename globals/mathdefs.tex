@@ -4,13 +4,21 @@
 %
 %
 
+\newcommand{\defined}{:=}
+
+
 \NewDocumentCommand{\Paths}{}{\mathsf{Paths}}
+\NewDocumentCommand{\Cycles}{}{\mathsf{Cycles}}
+
 \NewDocumentCommand{\FO}{}{\mathsf{FO}}
 \NewDocumentCommand{\EFO}{}{\mathsf{EFO}}
 \NewDocumentCommand{\MSO}{}{\mathsf{MSO}}
 
 \newcommand{\Neighb}[3]{\mathcal{N}_{#1}(#2, #3)}
 \newcommand{\Loc}[3]{\mathsf{Loc}(#1,#2, #3)}
+
+\newcommand{\Nat}{\mathbb{N}}
+
 \newcommand{\setof}[2]{\{ #1 \mid #2 \}}
 \newcommand{\set}[1]{\{ #1 \}}
 
@@ -25,3 +33,6 @@
 \NewDocumentCommand{\upset}{ m }{\mathop{\uparrow}#1}
 
 \NewDocumentCommand{\modset}{ O{} m }{\llbracket #2 \rrbracket_{#1}}
+
+
+\NewDocumentCommand{\restr}{ m m }{ {#1}_{|#2}}
