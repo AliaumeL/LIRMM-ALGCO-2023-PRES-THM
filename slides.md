@@ -49,22 +49,7 @@ abstract: |
 
     This talk is based on the results published at LICS 2022 in the paper "When
     Locality Meets Preservation".
-
 ---
-
-
-TODO:
-
-- Images are not done yet
-- preservation under extensions <-> Los Tarski
-- add colours
-
-
-# Preservation Theorems
-
-## What, why, and where?
-
-### Existential Sentences
 
 \newcommand{\Nat}{\mathbb{N}}
 \newcommand{\FO}{\mathsf{FO}}
@@ -72,6 +57,19 @@ TODO:
 \newcommand{\Neighb}[3]{\mathcal{N}_{#1}(#2, #3)}
 \newcommand{\Loc}[3]{\mathsf{Loc}(#1,#2, #3)}
 \newcommand{\setof}[2]{\{ #1 \mid #2 \}}
+
+# Preservation Theorems
+
+## What, why, and where?
+
+### Existential Sentences
+
+TODO:
+
+- Images are not done yet
+- preservation under extensions <-> Los Tarski
+- add colours
+
 
 $$
 \varphi := \varphi \wedge \varphi
@@ -95,7 +93,7 @@ $h \colon A \to B$.
 - Paths: $P_n \subseteq_i P_m$ iff $n \leq m$ 
 - Cliques: $K_n \subseteq_i K_m$ iff $n \leq m$ 
 
-### Preservation under Extensions
+### Preservation
 
 $\varphi(\vec{x})$ is preserved under extensions
 when, for every strong injective homomorphism $h \colon A \to B$,
